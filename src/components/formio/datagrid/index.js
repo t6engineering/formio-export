@@ -15,7 +15,7 @@ class DataGridComponent extends BaseComponent {
         let row = [];
 
         _.forEach(this.components, (c) => {
-          row.push(this.createComponent(c, value[c.key], options));
+          row.push(this.createComponent(c, value[c.label], options));
         });
         this.rows.push(row);
       });

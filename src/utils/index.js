@@ -140,7 +140,7 @@ const FormioExportUtils = {
     const search = (obj) => {
       if (_.isPlainObject(obj)) {
         if (_.has(obj, key)) {
-          return obj[key];
+          return _.isString(obj[key]) ? obj[key] : obj[key].displayValue;
         }
 
         let value = null;

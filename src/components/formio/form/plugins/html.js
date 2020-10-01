@@ -8,7 +8,15 @@ export default (element, component) => {
       id: Math.random().toString(36).substring(7)
     });
 
-    componentElement.appendChild(FormioExportUtils.createElement('h1', { class: 'form-title' }, component.title));
+    const title = FormioExportUtils.createElement('div', {class: 'form-title' });
+
+    _.forOwn(component.title, (value, key) => {
+      title.appendChild(
+        FormioExportUtils
+          .createElement('div', { style: 'padding-left: 8px; padding-right: 8px;' }, `${key}: ${value}`)
+      );
+    });
+    componentElement.appendChild(title);
 
     if (component._options.submission) {
       if (component._options.submission.hasOwnProperty('owner')) {
@@ -46,6 +54,7 @@ export default (element, component) => {
     if (_.isElement(element)) {
       element.appendChild(componentElement);
     }
+
     return componentElement;
   }
   return null;
