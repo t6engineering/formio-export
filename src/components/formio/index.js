@@ -34,6 +34,8 @@ import FieldSetComponent from './fieldset';
 
 import UnknownComponent from './unknown';
 
+import WellComponent from './well';
+
 const FormioComponent = {
   textfield: TextFieldComponent,
   textarea: TextAreaComponent,
@@ -62,6 +64,7 @@ const FormioComponent = {
   fieldset: FieldSetComponent,
   unknown: UnknownComponent,
   form: FormComponent,
+  well: WellComponent,
   create: (component, data, options) => {
     let c = null;
 

@@ -97,7 +97,6 @@ class FormioExport {
     return new Promise((resolve, reject) => {
       try {
         this.toHtml().then((source) => {
-          console.log(source);
           toPdf(Object.assign(config, { source: source })).then((pdf) => resolve(pdf));
         });
       } catch (error) {
