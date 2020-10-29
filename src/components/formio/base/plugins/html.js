@@ -15,8 +15,8 @@ export default (element, component) => {
     }, component.formatValue());
 
     if (!component.hideLabel && (!component.inDataGrid || component.dataGridLabel)) {
-      labelElement.className += component._options.equalCols ? '' : ' col-sm-3';
-      valueElement.className += component._options.equalCols ? '' : ' col-sm-9';
+      labelElement.className += component._options.equalCols ? '' : ' col-3';
+      valueElement.className += component._options.equalCols ? '' : ' col-9';
       componentElement.appendChild(labelElement);
     }
     componentElement.appendChild(valueElement);

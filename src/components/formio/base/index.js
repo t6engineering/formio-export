@@ -40,7 +40,7 @@ class BaseComponent {
   }
 
   getLabel () {
-    return this.legend || this.title || this.label || this.key;
+    return this.label || this.legend || this.title || this.key;
   }
 
   emptyValue () {

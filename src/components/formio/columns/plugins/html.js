@@ -12,18 +12,18 @@ export default (element, component) => {
     componentElement.className += component._options.ignoreLayout ? ' no-layout' : '';
 
     _.forEach(component.columns, (column) => {
-      let className = `col col-sm-${column.width}`;
+      let className = `col col-${column.width}`;
 
       if (column.offset) {
-        className += ` col-sm-offset-${column.offset}`;
+        className += ` col-offset-${column.offset}`;
       }
 
       if (column.push) {
-        className += ` col-sm-push-${column.push}`;
+        className += ` col-push-${column.push}`;
       }
 
       if (column.pull) {
-        className += ` col-sm-pull-${column.pull}`;
+        className += ` col-pull-${column.pull}`;
       }
 
       let columnComponent = FormioExportUtils.createElement('div', { class: className });

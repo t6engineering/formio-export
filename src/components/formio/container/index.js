@@ -16,6 +16,7 @@ class ContainerComponent extends BaseComponent {
   }
 
   toHtml (element) {
+    if (!this.visible) return null;
     return toHtml(element, this);
   }
 }

@@ -9,10 +9,10 @@ export default (element, component) => {
     });
 
     let labelElement = FormioExportUtils.createElement('div', {
-      class: 'col col-sm-3 component-label'
+      class: 'col col-3 component-label'
     }, component.label);
     let valueElement = FormioExportUtils.createElement('div', {
-      class: 'col col-sm-9 component-value'
+      class: 'col col-9 component-value'
     });
 
     _.forEach(component._value, (file) => {

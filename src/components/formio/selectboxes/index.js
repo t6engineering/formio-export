@@ -29,10 +29,8 @@ class SelectBoxesComponent extends BaseComponent {
     }
     let values = [];
 
-    _.forEach(this._value, (selected, value) => {
-      if (selected) {
-        values.push(this.formatValue(value));
-      }
+    _.forEach(this._value, (value) => {
+      values.push(this.formatValue(value));
     });
     return values;
   }

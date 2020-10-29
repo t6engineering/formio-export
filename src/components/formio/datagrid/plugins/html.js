@@ -45,7 +45,7 @@ export default (element, component) => {
         let rowElement = FormioExportUtils.createElement('div', {
           class: 'row grid-row'
         }, FormioExportUtils.createElement('div', {
-          class: 'col col-sm-3 grid-cell text-bold'
+          class: 'col col-3 grid-cell text-bold'
         }, row.legend || row.title || row.label));
 
         _.forEach(component.rows, (col) => {

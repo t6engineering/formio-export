@@ -2,34 +2,33 @@ import _ from 'lodash';
 import FormioExportUtils from '../../../../utils';
 
 export default (element, component) => {
-  if (component && component.input) {
+  if (component && component.components && !component.collapsed) {
     let componentElement = FormioExportUtils.createElement('div', {
       class: `formio-component ${component.type}-component card`,
       id: Math.random().toString(36).substring(7)
     });
     let labelElement = FormioExportUtils.createElement('div', {
       class: 'component-label card-header'
-    }, component.label);
+    }, component.getLabel());
     let valueElement = FormioExportUtils.createElement('div', {
       class: 'component-value card-body'
     });
 
-    let values = component.formatValues();
-
-    _.forEach(values, (item) => {
-      let questionElement = FormioExportUtils.createElement('div', { class: 'row survey-question' },
-        FormioExportUtils.createElement('div', { class: 'col-9 text-bold' }, item.question),
-        FormioExportUtils.createElement('div', { class: 'col-3' }, item.option)
-      );
-
-      valueElement.appendChild(questionElement);
-    });
-
-    if (!component.hideLabel && (!component.inDataGrid || component.dataGridLabel)) {
+    if ((!component.inDataGrid || component.dataGridLabel) && component.legend && component.legend !== '') {
       componentElement.appendChild(labelElement);
     }
 
+    _.forEach(component.components, (c) => {
+      if (c) {
+        if (component.inDataGrid) {
+          c._options.equalCols = true;
+        }
+        c.toHtml(valueElement);
+      }
+    });
+
     componentElement.appendChild(valueElement);
+
     if (_.isElement(element)) {
       element.appendChild(componentElement);
     }
